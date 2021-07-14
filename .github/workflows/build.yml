@@ -100,15 +100,17 @@ jobs:
   macos:
     runs-on: macos-10.15
     steps:
+      - run: brew list
       - uses: actions/checkout@v2
-#       - name: Install deps
-#         run: |
-#           brew update
-#           brew install ...
-      - run: brew ls
-      - name: Uninstall Homebrew
+      - name: Install deps
         run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+          brew unlink $(brew list --formulae)
+          brew update
+          if brew ls | grep -q cmake; then
+            brew upgrade cmake
+          else
+            brew install cmake
+          fi
 
       - name: Build
         run: |
