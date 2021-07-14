@@ -104,14 +104,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install deps
         run: |
-          brew unlink $(brew list --formulae)
+          deps=(cmake jpeg)
+          brew unlink $(brew ls --formula)
           brew update
-          if brew ls | grep -q cmake; then
-            brew upgrade cmake
-            brew link cmake
-          else
-            brew install cmake
-          fi
+          brew install ${deps}
+          brew upgrade ${deps}
+          brew link ${deps}
 
       - name: Build
         run: |
