@@ -105,6 +105,10 @@ jobs:
 #         run: |
 #           brew update
 #           brew install ...
+      - run: brew ls
+      - name: Uninstall Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
       - name: Build
         run: |
