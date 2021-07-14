@@ -104,12 +104,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install deps
         run: |
-          deps=(cmake jpeg)
-          brew unlink $(brew ls --formula)
-          brew update
-          brew install ${deps}
-          brew upgrade ${deps}
-          brew link ${deps}
+          brew install cmake libpng jpeg zlib
 
       - name: Build
         run: |
