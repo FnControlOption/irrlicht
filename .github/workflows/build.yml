@@ -108,6 +108,7 @@ jobs:
           brew update
           if brew ls | grep -q cmake; then
             brew upgrade cmake
+            brew link cmake
           else
             brew install cmake
           fi
