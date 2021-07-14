@@ -103,7 +103,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install deps
         run: |
-          brew install cmake libpng jpeg zlib
+          brew update
+          brew install gzip cmake libpng jpeg
 
       - name: Build
         run: |
