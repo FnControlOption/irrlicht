@@ -8,9 +8,6 @@ on:
 jobs:
 
   linux-gl:
-    #### Disabled
-    if: false
-    #### Disabled
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -34,9 +31,6 @@ jobs:
           path: ./irrlicht-linux.tar.gz
 
   linux-gles:
-    #### Disabled
-    if: false
-    #### Disabled
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -62,9 +56,6 @@ jobs:
           LIBGL_ALWAYS_SOFTWARE=true xvfb-run ./AutomatedTest
 
   win32:
-    #### Disabled
-    if: false
-    #### Disabled
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -80,9 +71,6 @@ jobs:
           CXX: i686-w64-mingw32-g++
 
   win64:
-    #### Disabled
-    if: false
-    #### Disabled
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -104,7 +92,7 @@ jobs:
       - name: Install deps
         run: |
           brew update
-          brew install gnu-tar gzip cmake libpng jpeg
+          brew install gnu-tar cmake libpng jpeg
 
       - name: Build
         run: |
